@@ -11,9 +11,14 @@ import {recipes} from '../../data/dataArray';
 import ImagePath from '../../constants/ImagePath';
 import styles from './Styles';
 import {getCategoryById, getCategoryName} from '../../data/dummyApi';
+import { useNavigation } from '@react-navigation/native';
 const RecipeList = () => {
+  const navigation=useNavigation()
+  const onPressRecipe = (item) => {
+    navigation.navigate("details", { item });
+  };
   const renderItem = ({item}) => (
-    <TouchableOpacity>
+    <TouchableOpacity onPress={()=>onPressRecipe(item)}>
       <View style={styles.container}>
         <Image style={styles.photo} source={{uri: item.photo_url}} />
         <Text style={styles.title}>{item.title}</Text>

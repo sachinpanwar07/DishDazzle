@@ -41,4 +41,14 @@ export  function getCategoryName(categoryId){
     return name;
 }
 
+export function getNumberOfRecipes(categoryId){
+  let count=0;
+  recipes.map(data=>{
+    if(data.categoryId===categoryId){
+        count++
+    }
+  })
+  return count;
+}
+
 

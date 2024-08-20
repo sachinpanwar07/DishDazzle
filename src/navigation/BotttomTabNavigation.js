@@ -10,7 +10,7 @@ import color from '../constants/color';
 const Tab=createBottomTabNavigator();
 const BotttomTabNavigation = () => {
   return (
-    <NavigationContainer>
+    <>
       <Tab.Navigator>
         <Tab.Screen  name='Home' component={HomeScreen}
          options={{title:"Home",tabBarIcon:({focused})=><Image source={ImagePath.ic_home}  style={{width:30,height:30,tintColor:focused ? color.blackColor:color.gray2}}/>,
@@ -33,7 +33,7 @@ const BotttomTabNavigation = () => {
         }}
         />
       </Tab.Navigator>
-    </NavigationContainer>
+    </>
   )
 }
 
