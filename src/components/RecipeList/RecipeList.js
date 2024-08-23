@@ -10,13 +10,15 @@ import React from 'react';
 import {recipes} from '../../data/dataArray';
 import ImagePath from '../../constants/ImagePath';
 import styles from './Styles';
-import {getCategoryById, getCategoryName} from '../../data/dummyApi';
+import {getCategoryById, getCategoryName, getRecipes} from '../../data/dummyApi';
 import { useNavigation } from '@react-navigation/native';
-const RecipeList = () => {
-  const navigation=useNavigation()
+const RecipeList = ({navigation,route}) => {
+ 
   const onPressRecipe = (item) => {
     navigation.navigate("details", { item });
   };
+    let  item=route?.params?.category
+    let recipeArray=getRecipes(item.id)
   const renderItem = ({item}) => (
     <TouchableOpacity onPress={()=>onPressRecipe(item)}>
       <View style={styles.container}>
@@ -30,7 +32,7 @@ const RecipeList = () => {
     <View>
       <FlatList
       numColumns={2}
-        data={recipes}
+        data={recipeArray}
         renderItem={renderItem}
         keyExtractor={(item) => `${item.recipeId}`}
       />

@@ -3,14 +3,21 @@ import React from 'react'
 import { categories } from '../../data/dataArray'
 import { getNumberOfRecipes } from '../../data/dummyApi'
 import styles from './Styles'
-const CategoriesList = () => {
+import { useNavigation } from '@react-navigation/native'
+const CategoriesList = ({route}) => {
+  const navigation=useNavigation()
+
+  const onPressCategory=(item)=>{
+    const title = item.name;
+    const category = item;
+    navigation.navigate("RecipeList", { category, title });
+  }
     const renderItem=({item})=>(
-       <TouchableOpacity>
+       <TouchableOpacity onPress={()=>onPressCategory(item)}>
          <View style={styles.container}>
           <Image source={{uri:item.photo_url}} style={styles.photo}/>
           <Text style={styles.textStyle}>{item.name}</Text>
           <Text style={styles.textStyle1}>{getNumberOfRecipes(item.id)}</Text>
-  
           </View>
        </TouchableOpacity>
 

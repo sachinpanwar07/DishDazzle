@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View,StatusBar } from 'react-native'
 import React from 'react'
 import BotttomTabNavigation from './src/navigation/BotttomTabNavigation'
 import StackNavigation from './src/navigation/StackNavigation'
@@ -6,6 +6,7 @@ import StackNavigation from './src/navigation/StackNavigation'
 const App = () => {
   return (
     <>
+     <StatusBar translucent backgroundColor="transparent" barStyle="light-content" />
     <StackNavigation/>
     </>
   )
