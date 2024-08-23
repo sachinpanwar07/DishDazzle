@@ -65,11 +65,11 @@ const RecipeDetail = ({ navigation, route }) => {
     <View style={styles.detailContainer}>
     <Text style={styles.titlestyle}>{item.title}</Text>
      <Text style={styles.categorystyle}>{getCategoryName(item.categoryId)}</Text>
-     <View style={{flexDirection:"row"}}>
-      <Image source={ImagePath.time} style={{width:10,height:10}}
+     <View style={{flexDirection:"row",justifyContent:"center",alignItems:"center"}}>
+      <Image source={ImagePath.ic_time} style={{width:30,height:30}}
         
       />
-      <Text style={styles.timeetxtStyle}>{item.time}</Text>
+      <Text style={styles.timeetxtStyle}>{item.time} minutes</Text>
      </View>
      <TouchableOpacity style={styles.viewIngredientbtn} onPress={()=>{
        let ingredients = item.ingredients;

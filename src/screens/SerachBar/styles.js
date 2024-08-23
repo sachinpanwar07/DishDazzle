@@ -1,13 +1,17 @@
 import { StyleSheet } from "react-native";
+import color from "../../constants/color";
 const styles = StyleSheet.create({
   searchInput: {
     height: 40,
-    borderColor: '#ccc',
-    borderWidth: 1,
+   
+ color:color.blackColor,
     borderRadius: 5,
     paddingLeft: 10,
     marginBottom: 10,
+   
+    
   },
+
   container: {
     flex: 1,
     flexDirection: 'column',
@@ -39,6 +43,25 @@ const styles = StyleSheet.create({
     paddingLeft: 10,
     paddingBottom: 10,
   },
+  searchBarStyle:{
+    justifyContent:"space-between",
+    alignContent:"center",
+    borderWidth:1,
+    borderRadius:10,
+    flexDirection:"row",
+
+  
+
+
+
+  },
+  serachIconstyle:{
+    width:30,
+    height:30,
+    alignSelf:"center",
+    right:10
+    
+  }
 });
 
 export default styles;

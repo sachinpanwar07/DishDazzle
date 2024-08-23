@@ -12,7 +12,7 @@ const styles= StyleSheet.create({
       position:"relative",
       height:300,
       justifyContent: 'center',
-       borderWidth:1
+    
     },
     title: {
       fontSize: 24,
@@ -74,12 +74,12 @@ const styles= StyleSheet.create({
     },
     categorystyle:{
       fontSize:20,
-      color:color.blueColor,
+      color:color.greenColor,
     },
     viewIngredientbtn:{
       backgroundColor:color.whiteColor,
       borderWidth:1,
-      borderColor:color.blueColor,
+      borderColor:color.greenColor,
       width:"80%",
       justifyContent:"center",
       alignItems:"center",
@@ -90,11 +90,12 @@ const styles= StyleSheet.create({
     timeetxtStyle:{
       fontSize:16,
       fontWeight:"bold",
+      color:color.blackColor
 
     },
     viewIngredientbtntxt:{
     fontSize:20,
-    color:color.blueColor
+    color:color.greenColor
     },
     descriptionstyle:{
       fontSize:18,

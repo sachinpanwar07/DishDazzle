@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import { FlatList, Text, View, Image, TextInput, TouchableHighlight } from "react-native";
+import { FlatList, Text, View, Image, TextInput, TouchableHighlight, TouchableOpacity, KeyboardAvoidingView } from "react-native";
 import styles from "./styles";
 import { getCategoryName, getRecipesByRecipeName, getRecipesByCategoryName, getRecipesByIngredientName } from "../../data/dummyApi";
+import ImagePath from "../../constants/ImagePath";
 
 export default function SearchScreen({ navigation }) {
   const [value, setValue] = useState("");
@@ -33,13 +34,24 @@ export default function SearchScreen({ navigation }) {
   );
 
   return (
-    <View style={{ flex: 1, padding: 10 }}>
-      <TextInput
+    <KeyboardAvoidingView 
+    style={{ flex: 1 }}
+      behavior={Platform.OS === 'ios' ? 'padding' : 'height'} 
+      keyboardVerticalOffset={Platform.OS === 'ios' ? 80 : 0} 
+    >
+
+   
+    <View style={{ flex: 1, padding: 10 ,marginTop:40,}}>
+     <TouchableOpacity style={styles.searchBarStyle}>
+     <TextInput
         style={styles.searchInput}
         placeholder="Search recipes..."
         onChangeText={handleSearch}
         value={value}
+        placeholderTextColor="black"
       />
+      <Image source={ImagePath.ic_search} style={styles.serachIconstyle}/>
+     </TouchableOpacity>
       <FlatList
         vertical
         showsVerticalScrollIndicator={false}
@@ -47,7 +59,9 @@ export default function SearchScreen({ navigation }) {
         data={data}
         renderItem={renderRecipes}
         keyExtractor={(item) => `${item.recipeId}`}
+       
       />
     </View>
+    </KeyboardAvoidingView>
   );
 }

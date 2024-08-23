@@ -1,4 +1,5 @@
 import { StyleSheet, Dimensions } from 'react-native';
+import color from './src/constants/color';
 
 // screen sizing
 const { width, height } = Dimensions.get('window');
@@ -43,6 +44,7 @@ export const RecipeCard = StyleSheet.create({
   },
   category: {
     marginTop: 5,
-    marginBottom: 5
+    marginBottom: 5,
+    color:color.blackColor
   }
 });
